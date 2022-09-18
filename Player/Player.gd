@@ -54,10 +54,7 @@ func _physics_process(delta):
 		ATTACK:
 			attack_state(delta)
 
-func move_state(delta):
-#	set player level
-	GlobalPlayerStats.level = character_stats.LEVEL
-	
+func move_state(delta):	
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
@@ -119,8 +116,9 @@ func _on_Hurtbox_invicibility_ended():
 
 func _on_give_exp(value):
 	character_stats.EXP += value
-	if character_stats.EXP > 10:
+	print("EXP: ",character_stats.EXP)
+	print("NEXT LVL EXP: ",GlobalPlayerStats.next_level_exp)
+	if character_stats.EXP > GlobalPlayerStats.next_level_exp:
 		character_stats.LEVEL += 1
 		GlobalPlayerStats.level = character_stats.LEVEL
 		Events.emit_signal("lvl_changed", true);
-	print(character_stats.EXP)

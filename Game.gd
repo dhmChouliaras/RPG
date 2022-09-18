@@ -30,4 +30,5 @@ func _save_game() -> void:
 
 func _on_set_character_stats(savedLvl):
 	GlobalPlayerStats.level = savedLvl
+	GlobalPlayerStats.next_level_exp = savedLvl * 20
 	Events.emit_signal("lvl_changed", true);

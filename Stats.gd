@@ -4,6 +4,7 @@ extends Node
 export(int) var max_health = 1 setget set_max_health
 var health = max_health setget set_health
 var level = 0
+var next_level_exp = 0
 
 signal no_health
 signal health_changed(value)
