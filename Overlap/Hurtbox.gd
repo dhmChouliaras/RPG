@@ -33,7 +33,7 @@ func _on_Timer_timeout():
 	player_rolling = false
 	self.invincible = false
 
-func _on_Hurtbox_invicibility_started():
+func _on_Hurtbox_invicibility_started(false):
 	collision_shape_2d.set_deferred("disabled",true)
 
 func _on_Hurtbox_invicibility_ended():
