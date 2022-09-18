@@ -123,10 +123,11 @@ func _on_give_exp(value):
 		GlobalPlayerStats.next_level_exp = (GlobalPlayerStats.level * 25) + 10
 		print("NEXT LVL EXP: ",GlobalPlayerStats.next_level_exp)
 		Events.emit_signal("lvl_changed", true);
-		if character_stats.LEVEL>= 2 && !yellow_glow_check:
+		if character_stats.LEVEL >= 2 && !yellow_glow_check:
 			activate_yellow_glow()
 
 func activate_yellow_glow():
 	yellow_glow_check = true
 	var yellow_glow_aura = YellowGlowAura.instance()
 	get_node(".").add_child(yellow_glow_aura)
+
