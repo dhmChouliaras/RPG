@@ -10,3 +10,4 @@ export(int) var ROLL_SPEED = 120
 export(int) var MAX_HEALTH = 10
 export(int) var HEALTH = 10
 export(int) var EXP = 0
+export(int) var LEVEL = 0
