@@ -117,8 +117,9 @@ func _on_Hurtbox_invicibility_ended():
 func _on_give_exp(value):
 	character_stats.EXP += value
 	print("EXP: ",character_stats.EXP)
-	print("NEXT LVL EXP: ",GlobalPlayerStats.next_level_exp)
 	if character_stats.EXP > GlobalPlayerStats.next_level_exp:
 		character_stats.LEVEL += 1
 		GlobalPlayerStats.level = character_stats.LEVEL
+		GlobalPlayerStats.next_level_exp = GlobalPlayerStats.level * 20
+		print("NEXT LVL EXP: ",GlobalPlayerStats.next_level_exp)
 		Events.emit_signal("lvl_changed", true);
