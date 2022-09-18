@@ -744,7 +744,7 @@ states/Run/node = SubResource( 20 )
 states/Run/position = Vector2( 455, 85 )
 transitions = [ "Idle", "Run", SubResource( 21 ), "Run", "Idle", SubResource( 22 ), "Idle", "Attack", SubResource( 33 ), "Attack", "Idle", SubResource( 34 ), "Roll", "Idle", SubResource( 46 ), "Idle", "Roll", SubResource( 47 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -3, -45 )
+graph_offset = Vector2( -151, -71 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=24]
 
@@ -848,12 +848,12 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 24 )
 parameters/Attack/blend_position = Vector2( 0, 1 )
 parameters/Idle/blend_position = Vector2( 0, 1 )
-parameters/Roll/blend_position = Vector2( 0, 1 )
+parameters/Roll/blend_position = Vector2( -0.0106996, 0.023913 )
 parameters/Run/blend_position = Vector2( 0, 1 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
-visible = false
 position = Vector2( 0, -4 )
+rotation = 1.5708
 
 [node name="SwordHitbox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( 15, 0 )
@@ -865,7 +865,6 @@ shape = SubResource( 35 )
 disabled = true
 
 [node name="Hurtbox" parent="." instance=ExtResource( 5 )]
-visible = false
 collision_layer = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
@@ -873,7 +872,7 @@ position = Vector2( 0, -4 )
 shape = SubResource( 48 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 7 )
+stream = ExtResource( 8 )
 
 [node name="BlinkAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 53 )
