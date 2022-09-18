@@ -81,6 +81,7 @@ func move_state(delta):
 func roll_state(delta):
 	velocity = roll_vector * character_stats.ROLL_SPEED
 	animationState.travel("Roll")
+	hurtbox.start_invicibility(0.6,true)
 	move()
 
 func attack_state(delta):
@@ -106,8 +107,9 @@ func _on_Hurtbox_area_entered(area):
 	get_tree().current_scene.add_child(player_hurt_sound)
 
 
-func _on_Hurtbox_invicibility_started():
-	blink_animation_player.play("Start")
+func _on_Hurtbox_invicibility_started(player_rolling):
+	if(!player_rolling):
+		blink_animation_player.play("Start")
 
 
 func _on_Hurtbox_invicibility_ended():

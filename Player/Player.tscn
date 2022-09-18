@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=62 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Player/Player.png" type="Texture" id=2]
@@ -9,7 +9,6 @@
 [ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=7]
 [ext_resource path="res://Music and Sounds/Evade.wav" type="AudioStream" id=8]
 [ext_resource path="res://WhiteColorShader.gdshader" type="Shader" id=9]
-[ext_resource path="res://Resources/CharacterStats.tres" type="Resource" id=10]
 
 [sub_resource type="ShaderMaterial" id=50]
 shader = ExtResource( 9 )
@@ -807,7 +806,6 @@ tracks/0/keys = {
 [node name="Player" type="KinematicBody2D"]
 collision_layer = 2
 script = ExtResource( 1 )
-player_stats = ExtResource( 10 )
 
 [node name="Shadow" type="Sprite" parent="."]
 position = Vector2( 0, 1 )
