@@ -7,7 +7,6 @@ onready var _player = $YSort/Player
 
 func _ready():
 	_player.connect("save_requested", self, "_save_game")
-	_player.connect("set_character_stats", self, "_on_set_character_stats")
 	create_or_load_game()
 
 
