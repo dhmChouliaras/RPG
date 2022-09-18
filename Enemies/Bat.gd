@@ -8,8 +8,6 @@ onready var soft_collision = $SoftCollision
 onready var wander_controller = $WanderController
 onready var animation_player = $AnimationPlayer
 
-signal give_exp(value)
-
 var velocity = Vector2.ZERO
 var knockback = Vector2.ZERO
 const EnemyDeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")

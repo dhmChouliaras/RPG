@@ -47,10 +47,10 @@ func _physics_process(delta):
 			move_state(delta)
 		
 		ROLL:
-			roll_state(delta)
+			roll_state()
 		
 		ATTACK:
-			attack_state(delta)
+			attack_state()
 
 func move_state(delta):	
 	var input_vector = Vector2.ZERO
@@ -78,13 +78,13 @@ func move_state(delta):
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 
-func roll_state(delta):
+func roll_state():
 	velocity = roll_vector * character_stats.ROLL_SPEED
 	animationState.travel("Roll")
 	hurtbox.start_invicibility(0.6,true)
 	move()
 
-func attack_state(delta):
+func attack_state():
 	velocity = velocity*.8
 	animationState.travel("Attack")
 
