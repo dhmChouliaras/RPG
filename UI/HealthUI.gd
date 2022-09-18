@@ -6,8 +6,6 @@ onready var heart_ui_full = $HeartUIFull
 var hearts = 4 setget set_hearts
 var max_hearts = 4 setget set_max_hearts
 
-
-
 func set_hearts(value):
 	hearts = clamp(value, 0 , max_hearts)
 	if heart_ui_full != null:

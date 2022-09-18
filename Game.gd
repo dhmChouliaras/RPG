@@ -7,6 +7,7 @@ onready var _player = $YSort/Player
 
 func _ready():
 	_player.connect("save_requested", self, "_save_game")
+	_player.connect("set_character_stats", self, "_on_set_character_stats")
 	create_or_load_game()
 
 
@@ -26,3 +27,7 @@ func create_or_load_game():
 func _save_game() -> void:
 	_save.global_position = _player.global_position
 	_save.write_savegame()
+
+func _on_set_character_stats(savedLvl):
+	GlobalPlayerStats.level = savedLvl
+	Events.emit_signal("lvl_changed", true);
