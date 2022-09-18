@@ -25,7 +25,6 @@ onready var hurtbox = $Hurtbox
 onready var blink_animation_player = $BlinkAnimationPlayer
 
 signal save_requested
-signal set_character_stats
 
 func _ready() -> void:
 	set_physics_process(false)
@@ -38,7 +37,6 @@ func _ready() -> void:
 
 func set_stats(new_stats: CharacterStats) -> void:
 	character_stats = new_stats
-	self.emit_signal("set_character_stats",character_stats.LEVEL)
 	set_physics_process(character_stats != null)
 
 func _physics_process(delta):
@@ -117,9 +115,9 @@ func _on_Hurtbox_invicibility_ended():
 func _on_give_exp(value):
 	character_stats.EXP += value
 	print("EXP: ",character_stats.EXP)
-	if character_stats.EXP > GlobalPlayerStats.next_level_exp:
+	if character_stats.EXP >= GlobalPlayerStats.next_level_exp:
 		character_stats.LEVEL += 1
 		GlobalPlayerStats.level = character_stats.LEVEL
-		GlobalPlayerStats.next_level_exp = GlobalPlayerStats.level * 20
+		GlobalPlayerStats.next_level_exp = (GlobalPlayerStats.level * 25) + 10
 		print("NEXT LVL EXP: ",GlobalPlayerStats.next_level_exp)
 		Events.emit_signal("lvl_changed", true);

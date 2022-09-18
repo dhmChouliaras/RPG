@@ -23,12 +23,10 @@ func create_or_load_game():
 	
 	_player.global_position = _save.global_position
 	_player.character_stats = _save.character
+	GlobalPlayerStats.level = _player.character_stats.LEVEL
+	GlobalPlayerStats.next_level_exp = (_player.character_stats.LEVEL * 25) + 10
 
 func _save_game() -> void:
 	_save.global_position = _player.global_position
 	_save.write_savegame()
 
-func _on_set_character_stats(savedLvl):
-	GlobalPlayerStats.level = savedLvl
-	GlobalPlayerStats.next_level_exp = savedLvl * 20
-	Events.emit_signal("lvl_changed", true);
