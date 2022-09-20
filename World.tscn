@@ -646,4 +646,7 @@ margin_bottom = 177.0
 [node name="FireParticles" parent="." instance=ExtResource( 13 )]
 position = Vector2( 145, 488 )
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0.482353, 0.482353, 0.482353, 1 )
+
 [editable path="Camera2D"]
