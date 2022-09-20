@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://World/Bush.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Game.gd" type="Script" id=11]
 [ext_resource path="res://LevelUI.tscn" type="PackedScene" id=12]
 [ext_resource path="res://FireParticles.tscn" type="PackedScene" id=13]
+[ext_resource path="res://DayAndNightCycle.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DirtTileset.png 0"
@@ -488,6 +489,11 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 } ]
 0/z_index = 0
 
+[sub_resource type="Environment" id=50]
+background_mode = 4
+glow_enabled = true
+glow_bicubic_upscale = true
+
 [node name="World" type="Node2D"]
 script = ExtResource( 11 )
 
@@ -644,9 +650,11 @@ margin_right = 106.0
 margin_bottom = 177.0
 
 [node name="FireParticles" parent="." instance=ExtResource( 13 )]
-position = Vector2( 145, 488 )
+position = Vector2( 367, 291 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.482353, 0.482353, 0.482353, 1 )
+[node name="DayAndNightCycle" parent="." instance=ExtResource( 14 )]
+
+[node name="WorldLighting" type="WorldEnvironment" parent="."]
+environment = SubResource( 50 )
 
 [editable path="Camera2D"]
