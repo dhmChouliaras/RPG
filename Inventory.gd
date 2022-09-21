@@ -4,7 +4,7 @@ class_name Inventory
 signal items_changed(indexes)
 
 export(Array, Resource) var items = [
-	null, null, null, null, null, null, null, null, null
+	null, null, null, null, null, null, null, null, null,
 ]
 
 func set_item(item_index, item):
@@ -21,6 +21,7 @@ func swap_items(item_index, target_item_index):
 	emit_signal("items_changed",[item_index,target_item_index])
 
 func remove_item(item_index):
+	var item_index_one_less = item_index
 	var previousItem = items[item_index]
 	items[item_index] = null
 	emit_signal("items_changed",[item_index])
