@@ -1,9 +1,7 @@
 extends KinematicBody2D
 
-# movement
 const PlayerHurtSound = preload("res://Player/PlayerHurtSound.tscn")
 const YellowGlowAura = preload("res://PowerUp/YellowGlowAura.tscn")
-
 
 var character_stats = CharacterStats setget set_stats
 
@@ -54,12 +52,11 @@ func _physics_process(delta):
 		ATTACK:
 			attack_state()
 
-func move_state(delta):	
+func move_state(delta):
 	var input_vector = Vector2.ZERO
 	input_vector.x = Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left")
 	input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
-	
 	if input_vector != Vector2.ZERO:
 		roll_vector = input_vector
 		swordHitbox.knockback_vector = input_vector

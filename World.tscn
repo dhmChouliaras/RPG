@@ -501,7 +501,7 @@ script = ExtResource( 11 )
 position = Vector2( 160, 87 )
 texture = ExtResource( 3 )
 region_enabled = true
-region_rect = Rect2( 0, 0, 2077.96, 868.73 )
+region_rect = Rect2( -9.55548, 0, 2087.52, 868.73 )
 
 [node name="DirtPathTileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
